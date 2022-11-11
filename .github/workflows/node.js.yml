@@ -57,8 +57,7 @@ jobs:
 
     - name: Generate App APK
       run: |
-        PACKAGE_VERSION=$(node -p -e \"require('./package.json').version\") && cd android && ENVFILE=.env.prd ./gradlew assembleRelease && mv app/build/outputs/apk/release/app-release.apk ../app-releaseProd-v.$PACKAGE_VERSION.apk 
-
+        npm build
     - name: 'Upload Apk Artifact'
       uses: actions/upload-artifact@v2
       with:
