@@ -51,10 +51,13 @@ jobs:
 
     - name: Make Gradlew Executable
       run: cd android && chmod +x ./gradlew
+    
+    - name: Test
+      run: npm test
 
     - name: Generate App APK
       run: |
-        cd android && ./gradlew assembleRelease 
+        PACKAGE_VERSION=$(node -p -e \"require('./package.json').version\") && cd android && ENVFILE=.env.prd ./gradlew assembleRelease && mv app/build/outputs/apk/release/app-release.apk ../app-releaseProd-v.$PACKAGE_VERSION.apk 
 
     - name: 'Upload Apk Artifact'
       uses: actions/upload-artifact@v2
