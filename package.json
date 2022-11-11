@@ -7,7 +7,7 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest",
-    "build": "PACKAGE_VERSION=$(node -p -e \"require('./package.json').version\") && cd android && ENVFILE=.env.prd ./gradlew assembleRelease && mv app/build/outputs/apk/release/app-release.apk ../app-releaseProd-v.$PACKAGE_VERSION.apk"
+    "build": "cd android && ENVFILE=.env.prd ./gradlew assembleRelease"
   },
   "jest": {
     "preset": "react-native"

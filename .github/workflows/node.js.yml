@@ -57,9 +57,9 @@ jobs:
 
     - name: Generate App APK
       run: |
-        npm run build
+        npm build
     - name: 'Upload Apk Artifact'
       uses: actions/upload-artifact@v2
       with:
         name: 'app-release'
-        path: android/app/build/outputs/apk/release/*.apk
+        path: android/app/build/outputs/apk/release/app-release.apk
