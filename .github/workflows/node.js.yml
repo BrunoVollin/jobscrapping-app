@@ -13,31 +13,31 @@ jobs:
 
   test:
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  strategy:
-    matrix:
-      node-version: [16.x]
+    strategy:
+      matrix:
+        node-version: [16.x]
 
-  steps:
-  - uses: actions/checkout@v3
-  - name: Use Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v3
-    with:
-      node-version: ${{ matrix.node-version }}
-      cache: 'npm'
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
 
-  - name: Set up our JDK environment # setup JDK environment: mandatory as we need to build  android project
-    uses: actions/setup-java@v1.4.3
-    with: 
-      java-version: 11
-    
-  - name: Install dependencies
-    run: npm install
+    - name: Set up our JDK environment # setup JDK environment: mandatory as we need to build  android project
+      uses: actions/setup-java@v1.4.3
+      with: 
+        java-version: 11
 
-  - name: Test
-    run: npm test
+    - name: Install dependencies
+      run: npm install
+
+    - name: Test
+      run: npm test
 
 
 
