@@ -101,4 +101,4 @@ jobs:
     steps:
     - name: Executar scripts versionados
       uses: actions/checkout@v3
-    - run: sh scripts/shell.sh
+    - run: node ./scripts/mail.js
